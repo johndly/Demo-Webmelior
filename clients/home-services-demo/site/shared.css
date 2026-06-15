@@ -96,7 +96,9 @@ h1, h2, h3, h4 {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(45,55,72,0.10);
   box-shadow: 0 1px 8px rgba(45,55,72,0.06);
+  transition: transform 0.32s cubic-bezier(0.19,1,0.22,1);
 }
+.nav-hidden { transform: translateY(-100%); }
 .nav-inner {
   max-width: 1280px; margin: 0 auto;
   padding: 0 24px;
