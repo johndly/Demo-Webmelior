@@ -73,9 +73,23 @@
   </nav>
 
   <!-- ─── HERO ─── -->
+  <style>
+    .hvac-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hvac-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+  </style>
   <section style="padding:80px 24px 64px;position:relative;overflow:hidden;">
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 30% 40%,rgba(159,225,203,0.22) 0%,transparent 70%);"></div>
-    <div class="container" style="position:relative;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:center;">
+    <div class="container hvac-hero-grid" style="position:relative;">
       <div class="reveal">
         <div class="section-badge"><span class="dot"></span>3 trades · 1 specialist agency</div>
         <h1 style="font-size:clamp(2.4rem,5.5vw,4rem);letter-spacing:-0.03em;line-height:1.06;color:var(--text-dark);margin-bottom:18px;">We only work<br/>with the trades.</h1>

@@ -42,9 +42,23 @@
   </nav>
 
   <!-- HERO -->
+  <style>
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+  </style>
   <section style="padding:80px 24px 64px;position:relative;overflow:hidden;">
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 50% at 70% 40%,rgba(159,225,203,0.20) 0%,transparent 65%);"></div>
-    <div class="container" style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div class="container about-hero-grid" style="position:relative;">
       <div class="reveal">
         <div class="section-badge"><span class="dot"></span>Our story</div>
         <h1 class="section-title">Built for tradespeople. By someone who gets it.</h1>
