@@ -17,7 +17,7 @@
 <body class="grain">
 
   <div style="background:rgba(44,42,42,0.97);color:rgba(255,255,255,0.75);text-align:center;font-size:13px;font-weight:500;padding:9px 16px;">
-    Now serving HVAC, Plumbing &amp; Electrical. <a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#" style="color:var(--accent);text-decoration:underline;">Book a free call →</a>
+    Serving Central Florida · HVAC, Plumbing &amp; Electrical. <a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#" style="color:var(--accent);text-decoration:underline;">Book a free call →</a>
   </div>
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
@@ -28,7 +28,6 @@
       <ul class="nav-links" role="list">
         <li><a href="index.html">Services</a></li>
         <li><a href="../industries/hvac.html">Industries</a></li>
-        <li><a href="../case-studies.html">Results</a></li>
         <li><a href="../pricing.html">Pricing</a></li>
         <li><a href="../about.html">About</a></li>
       </ul>
@@ -39,7 +38,7 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Services</a><a href="../industries/hvac.html">Industries</a><a href="../case-studies.html">Results</a><a href="../pricing.html">Pricing</a><a href="../about.html">About</a>
+      <a href="index.html">Services</a><a href="../industries/hvac.html">Industries</a><a href="../pricing.html">Pricing</a><a href="../about.html">About</a>
       <a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#" class="btn btn-primary">Book a Free Call</a>
     </div>
   </nav>
@@ -194,13 +193,14 @@
     </div>
   </section>
 
-  <footer class="site-footer"><div class="footer-bottom" style="max-width:1200px;margin:0 auto;border-top:none;padding:28px 24px;"><a href="../index.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">← Back to home</a><span>&copy; 2026 WebMelior</span><a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#" class="btn btn-primary" style="font-size:13px;padding:8px 18px;">Book a call</a></div></footer>
+  <footer class="site-footer"><div class="footer-bottom" style="max-width:1200px;margin:0 auto;border-top:none;padding:28px 24px;"><a href="../index.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;">← Back to home</a><span>&copy; 2026 WebMelior</span></div></footer>
   <div class="mobile-cta-bar"><a href="tel:+14077156746" class="btn btn-primary" style="flex:1;justify-content:center;">Tap to call</a><a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#" class="btn btn-outline" style="flex:1;justify-content:center;">Book a call</a></div>
 
   <script>
     const ham = document.getElementById('hamburger');
     const menu = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => { const o = menu.classList.toggle('open'); ham.setAttribute('aria-expanded', String(o)); });
+    document.body.appendChild(menu); // escape nav stacking context
+    ham.addEventListener('click', () => { const o = menu.classList.toggle('open'); ham.setAttribute('aria-expanded', String(o)); document.querySelector('.site-nav').classList.toggle('menu-open', o); });
     const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('revealed');obs.unobserve(x.target);} }), {threshold:.08});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 

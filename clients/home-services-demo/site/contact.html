@@ -12,7 +12,7 @@
 </head>
 <body class="grain">
 
-  <div class="announce-bar">Now serving HVAC, Plumbing &amp; Electrical. <a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#">Book a free call →</a></div>
+  <div class="announce-bar">Serving Central Florida · HVAC, Plumbing &amp; Electrical. <a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#">Book a free call →</a></div>
 
   <nav class="site-nav" aria-label="Main navigation">
     <div class="nav-inner">
@@ -23,7 +23,6 @@
       <ul class="nav-links" role="list">
         <li><a href="services/index.html">Services</a></li>
         <li><a href="industries/hvac.html">Industries</a></li>
-        <li><a href="case-studies.html">Results</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
@@ -36,7 +35,6 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="services/index.html">Services</a>
       <a href="industries/hvac.html">Industries</a>
-      <a href="case-studies.html">Results</a>
       <a href="pricing.html">Pricing</a>
       <a href="about.html">About</a>
       <a data-cal-link="webmelior-zhfjhv/book-a-free-call" data-cal-namespace="book-a-free-call" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' href="#" class="btn btn-primary">Book a Free Call</a>
@@ -115,7 +113,7 @@
           </form>
 
           <div id="formSuccess" style="display:none;background:var(--accent-light);border:1.5px solid var(--accent);border-radius:var(--radius-lg);padding:32px;text-align:center;margin-top:16px;">
-            <div style="font-size:2rem;margin-bottom:12px;">✅</div>
+            <div style="display:flex;justify-content:center;margin-bottom:12px;color:var(--primary-mid);"><svg class="lucide-icon" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
             <h3 style="font-size:1.3rem;letter-spacing:-0.02em;margin-bottom:8px;">You're on the list!</h3>
             <p style="font-size:14px;color:var(--text-mid);line-height:1.6;">We'll reach out within 2 business hours to confirm your call time. Check your spam folder if you don't hear from us.</p>
           </div>
@@ -144,6 +142,13 @@
             <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-mid);margin-bottom:8px;">Our guarantee</div>
             <p style="font-size:13px;line-height:1.6;color:var(--text-mid);">If we can't point to at least 3 things holding back your inbound calls on the audit call, we'll buy you a coffee. No kidding.</p>
           </div>
+          <div style="background:#fff;border:1.5px solid rgba(15,110,86,0.15);border-radius:var(--radius);padding:16px;margin-top:12px;display:flex;gap:10px;align-items:flex-start;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;margin-top:1px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:var(--primary-mid);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:4px;">Service area</div>
+              <p style="font-size:13px;line-height:1.6;color:var(--text-mid);">We serve trade businesses across Central Florida, Orlando, Tampa, Kissimmee, Sanford, Lakeland, Daytona Beach, and surrounding areas.</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -165,7 +170,8 @@
   <script>
     const ham = document.getElementById('hamburger');
     const menu = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => { const o = menu.classList.toggle('open'); ham.setAttribute('aria-expanded', String(o)); });
+    document.body.appendChild(menu); // escape nav stacking context
+    ham.addEventListener('click', () => { const o = menu.classList.toggle('open'); ham.setAttribute('aria-expanded', String(o)); document.querySelector('.site-nav').classList.toggle('menu-open', o); });
     const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('revealed');obs.unobserve(x.target);} }), {threshold:.08});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
@@ -191,6 +197,30 @@
 </script>
 <script>
 (function(){var n=document.querySelector(".site-nav"),l=0;window.addEventListener("scroll",function(){var y=window.scrollY;if(y>l&&y>64)n.classList.add("nav-hidden");else n.classList.remove("nav-hidden");l=y;},{passive:true});})();
+</script>
+<script type="module">
+import anime, { svg } from 'https://cdn.jsdelivr.net/npm/animejs@4/lib/anime.esm.min.js';
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const icons = [...document.querySelectorAll('.lucide-icon')];
+  if (!icons.length) return;
+  const iconShapes = await Promise.all(icons.map(async icon => {
+    const shapes = [...icon.querySelectorAll('path, circle, rect, polygon, polyline, line, ellipse')];
+    const drawables = await Promise.all(shapes.map(s => svg.createDrawable(s)));
+    return { icon, drawables };
+  }));
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const item = iconShapes.find(d => d.icon === entry.target);
+      if (!item) return;
+      item.drawables.forEach((drawable, i) => {
+        anime({ targets: drawable, strokeDashoffset: [anime.get(drawable, 'strokeDashoffset'), 0], duration: 520, delay: i * 55, easing: 'easeInOutSine' });
+      });
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.15 });
+  icons.forEach(el => obs.observe(el));
+}
 </script>
 </body>
 </html>
