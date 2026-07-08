@@ -128,10 +128,21 @@
         gap: 72px;
         align-items: center;
       }
+      .founder-photo-wrap {
+        position: relative;
+      }
+      .founder-photo-wrap::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 30%;
+        background: linear-gradient(to bottom, transparent, var(--surface));
+        pointer-events: none;
+      }
       .founder-photo {
-        width: 100%;
+        max-width: 100%;
+        height: auto;
         display: block;
-        filter: drop-shadow(0 20px 48px rgba(0,67,49,0.14)) drop-shadow(0 4px 12px rgba(0,67,49,0.08));
       }
       .founder-body p {
         font-size: 15px;
@@ -164,7 +175,7 @@
     <div class="container">
       <div class="founder-grid reveal">
         <div class="founder-photo-wrap">
-          <img class="founder-photo" src="assets/johndly-headshot-floating.png" alt="Johndly Fertil, founder of WebMelior" width="360" height="420" />
+          <img class="founder-photo" src="assets/johndly-headshot-floating.png" alt="Johndly Fertil, founder of WebMelior" />
         </div>
         <div class="founder-body">
           <div class="section-badge"><span class="dot"></span>Meet the founder</div>
