@@ -7,8 +7,11 @@
 
 ## ⚡ Always do first
 
-- **Invoke `/frontend-design`** before writing any frontend code — loads brand palette, screenshot workflow, logo mark, and hard rules. No exceptions.
-- **Invoke `/ui-ux-pro-max`** immediately after — loads design intelligence (67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, accessibility rules).
+- **Read `PROJECTS.md`** — identify which project is being worked on and confirm the folder path before touching any file.
+- **If working on a client site:** read `PLAYBOOK.md` instead of looking at the personal site files. Do NOT run `/frontend-design` — it loads WebMelior personal brand.
+- **If working on the WebMelior personal site** (`clients/home-services-demo/`): confirm `PROJECT.md` is present in that folder before proceeding.
+- **Invoke `/frontend-design`** before writing any frontend code on the **personal site only** — loads brand palette, screenshot workflow, logo mark, and hard rules. No exceptions.
+- **Invoke `/ui-ux-pro-max`** immediately after — loads design intelligence (67 styles, 96 palettes, 57 font pairings, 99 UX guidelines, accessibility rules). Applies to all projects.
 - **Check `brand_assets/`** before designing anything — it may contain logos, color guides, or style references. Use them. Do not invent brand colors or swap in placeholders where real assets exist.
 - **Read this file fully** before acting on any task.
 
